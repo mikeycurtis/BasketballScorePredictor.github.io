@@ -20,11 +20,12 @@
       
       footer {
       background-color: LightGray;
+      width: 100%;
       padding: 10px;
       text-align: center;
       color: Black;
       }
-      .sidenav {
+      .sidebarleft {
       height: 100%;
       width: 60px; 
       position: fixed; 
@@ -35,11 +36,24 @@
       overflow-x: hidden; 
       padding-top: 20px;
       }
+      .sidebarright {
+      height: 100%;
+      width: 60px; 
+      position: fixed; 
+      z-index: 1; 
+      top: 0; 
+      right: 0;
+      background-color: LightGray; 
+      overflow-x: hidden; 
+      padding-top: 20px;
+      }
     </style>
     
   </head>
   <body>
-    <div class="sidenav">
+    <div class="sidebarleft">
+    </div>
+    <div class="sidebarright">
     </div>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
