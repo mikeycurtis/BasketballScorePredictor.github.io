@@ -1,3 +1,4 @@
+console.log('hello')
 function passNBAData() {
   var x = document.getElementById("nbaForm");
   var text = "";
