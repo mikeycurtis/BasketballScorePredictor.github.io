@@ -11,6 +11,8 @@
       crossorigin="anonymous"
     />
     <title>NBA Score Predictor</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="app.js"></script>
   </head>
   <body>
     <div class="container">
@@ -51,6 +53,330 @@
         <li>Final Score</li>
       </ul>
     </center>
+    <form method="GET" id="nbaForm">
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for="hHalfScore">Home</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home Half Score"
+            aria-label="Home Half Score"
+            id="hHalfScore"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for="aHalfScore">Away</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away Half Score"
+            aria-label="Away Half Score"
+            id="aHalfScore"
+          />
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home FGA"
+            aria-label="Home FGA"
+            id="hFGA"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away FGA"
+            aria-label="Away FGA"
+            id="aFGA"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home FGM"
+            aria-label="Home FGM"
+            id="hFGM"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away FGM"
+            aria-label="Away FGM"
+            id="aFGM"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home 3FGA"
+            aria-label="Home 3FGA"
+            id="h3FGA"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away 3FGA"
+            aria-label="Away 3FGA"
+            id="a3FGA"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home 3FGM"
+            aria-label="Home 3FGM"
+            id="h3FGM"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away 3FGM"
+            aria-label="Away 3FGM"
+            id="a3FGM"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home FTA"
+            aria-label="Home FTA"
+            id="hFTA"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away FTA"
+            aria-label="Away FTA"
+            id="aFTA"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home FTM"
+            aria-label="Home FTM"
+            id="hFTM"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away FTM"
+            aria-label="Away FTM"
+            id="aFTM"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home OREB"
+            aria-label="Home OREB"
+            id="hOREB"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away OREB"
+            aria-label="Away OREB"
+            id="aOREB"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home DREB"
+            aria-label="Home DREB"
+            id="hDREB"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away DREB"
+            aria-label="Away DREB"
+            id="aDREB"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home AST"
+            aria-label="Home AST"
+            id="hAST"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away AST"
+            aria-label="Away AST"
+            id="aAST"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home STL"
+            aria-label="Home STL"
+            id="hSTL"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away STL"
+            aria-label="Away STL"
+            id="aSTL"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home BLK"
+            aria-label="Home BLK"
+            id="hBLK"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away BLK"
+            aria-label="Away BLK"
+            id="aBLK"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home TO"
+            aria-label="Home TO"
+            id="hTO"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away TO"
+            aria-label="Away TO"
+            id="aTO"
+          />
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Home PF"
+            aria-label="Home PF"
+            id="hPF"
+          />
+        </div>
+        <div class="col-md-2">
+          <label for=""></label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Away PF"
+            aria-label="Away PF"
+            id="aPF"
+          />
+          <label for=""></label>
+        </div>
+      </div>
+    </form>
+    <div class="row-cols-lg-3 text-center">
+      <button
+        type="submit"
+        onclick="passNBAData()"
+        class="btn btn-primary"
+        id="wnbaSubmits"
+      >
+        Predict
+      </button>
+    </div>
+    <label>Your input: </label>
+    <p><span id="prediction"></span></p>
   </body>
-  <script src="app.js"></script>
 </html>
+
