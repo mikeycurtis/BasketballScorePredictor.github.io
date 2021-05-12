@@ -1,4 +1,4 @@
-unction passNBAData() {
+function passNBAData() {
   var x = document.getElementById("nbaForm");
   var text = "";
   var i;
