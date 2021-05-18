@@ -86,8 +86,20 @@
     </p>
     <p style="padding-left: 30px">
       We then converted the play-by-play data into a dataframe of half-time
-      statistics that we thought would be significant. The full dataset can be
-      found
+      statistics that we thought would be significant. We did this by creating a
+      <a
+        href="https://github.com/mikeycurtis/nba-datascience-project/blob/main/Game.py"
+        >Game</a
+      >
+      class that contains all the half time statistics for a given game, and
+      then going through the play-by-play data, creating an array of games,
+      which we then turned into a dataframe.
+      <a
+        href="https://github.com/mikeycurtis/nba-datascience-project/blob/main/getData.py"
+        >Here</a
+      >
+      is the code used to make our initial dataset.<br /><br>
+      The full dataset can be found
       <a href="https://www.kaggle.com/mikeycurtis/nba-half-stats">here.</a>
       Below is an example of how our initial dataset was formatted.
     </p>
@@ -241,9 +253,15 @@
         href="https://github.com/swar/nba_api/blob/master/docs/table_of_contents.md"
         >nba_api</a
       >. With this method, not only were we able to collect more statistical
-      data, but we were also able to create a WNBA dataset. The new datasets
-      consisted of both advanced and traditional box score statistics. The NBA
-      dataset can be found
+      data, but we were also able to create a WNBA dataset. <br><br>The new datasets
+      consisted of both advanced and traditional box score statistics. We did
+      this by using nba_api's LeagueGameFinder, BoxScoreAdvancedV2, and
+      BoxScoreTraditionalV2 functions along with pandas to create a new dataset
+      with many more statistics. The LeagueGameFinder function was used to
+      retrieve the game ids of roughly the past 15,000 games. We then fed these
+      game ids into the BoxScoreAdvancedV2 and the BoxScoreTraditionalV2
+      functions and merged the statistics into a single dataset for eachgame. <a href=https://github.com/mikeycurtis/nba-datascience-project/blob/main/getGamesHalfStats.py>Here</a> is the code. 
+      <br><br>The NBA dataset can be found
       <a
         href="https://www.kaggle.com/mikeycurtis/nba-half-time-statistics-20102021"
         >here.</a
