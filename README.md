@@ -291,7 +291,7 @@ The full dataset can be found [here.](https://www.kaggle.com/mikeycurtis/nba-hal
 
 ##### Final Approach
 
-We decided that our original dataset could be improved upon, so we took a different approach. Instead of searching through datasets that had already been made, we created a new dataset using [nba_api](https://github.com/swar/nba_api/blob/master/docs/table_of_contents.md). With this method, not only were we able to collect more statistical data, but we were also able to create a WNBA dataset.
+We decided that our original dataset could be improved, so we took a different approach. Instead of searching through datasets that had already been made, we created a new dataset using [nba_api](https://github.com/swar/nba_api/blob/master/docs/table_of_contents.md). With this method, not only were we able to collect more statistical data, but we were also able to create a WNBA dataset.
 
 The new datasets consisted of both advanced and traditional box score statistics. We did this by using nba_api's LeagueGameFinder, BoxScoreAdvancedV2, and BoxScoreTraditionalV2 functions along with pandas to create a new dataset with many more statistics. The LeagueGameFinder function was used to retrieve the game ids of roughly the past 15,000 games. We then fed these game ids into the BoxScoreAdvancedV2 and the BoxScoreTraditionalV2 functions and merged the statistics into a single dataset for eachgame. [Here](https://github.com/BasketballScorePredictor/BasketballScorePredictor.github.io/blob/main/DataCollection/getGamesHalfStats.py) is the code.
 
