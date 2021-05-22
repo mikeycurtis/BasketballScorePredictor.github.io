@@ -722,10 +722,10 @@
       a few simple compositions of variables. These included using the four 
       factors, difference of the four factors (home - away), and using all 
       of the halftime variables at once. At best, these models yielded an 
-      R2 value of about 0.534. This meant that only 53.4% of the variability 
+      R<sup>2</sup> value of about 0.534. This meant that only 53.4% of the variability 
       in the final score was accounted for by a change in the variables we 
       had defined in the models. In order for our model to be effective enough, 
-      we determined from this result that we should aim for a minimum R2 value 
+      we determined from this result that we should aim for a minimum R<sup>2</sup> value 
       of 0.7. </p>
     <h5>Tuning</h5>
     <p>Although at this point we're far from our goal, there are a variety of methods 
@@ -735,18 +735,18 @@
       determine the best model, these methods either add or remove variables and 
       determine superiority based on a specified comparison criterion. After trying 
       out both forward and backward stepwise selection, the resulting models had a 
-      negative impact on R2 because they improved overfitting. Next, we looked into 
+      negative impact on R<sup>2</sup> because they improved overfitting. Next, we looked into 
       whether applying a box-cox transformation could prove useful. This entails 
       constructing a confidence interval to determine the best value for transformation. 
       The following graph shows that the transformation should be applied for a lambda 
       value of 0.75. 
-      <img src="/LinReg/boxcox.jpg" alt="BoxCox" width="800" height="600"> <br />
+      <img src="/LinReg/boxcox.jpg" alt="BoxCox" width="400" height="300"> <br />
       We know that a transformation is appropriate because the interval 
-      didn't contain one, the default value. This response transformation yielded an R2 
+      didn't contain one, the default value. This response transformation yielded an R<sup>2</sup> 
       value of 0.556, which is definitely an improvement.
-      <img src="/LinReg/optimalmod.jpg" alt="BoxCox" width="600" height="1200"> <br />
+      <img src="/LinReg/optimalmod.jpg" alt="BoxCox" width="400" height="700"> <br />
       After experimenting with a variety of other methods like accounting for interactions 
-      among variables and trying polynomial regression, nothing could break through to 0.6 R2 or higher.
+      among variables and trying polynomial regression, nothing could break through to 0.6 R<sup>2</sup> or higher.
     </p>
     <h5>Verdict</h5>
     <p>Ultimately, basketball is a game where there are many paths to victory. This 
