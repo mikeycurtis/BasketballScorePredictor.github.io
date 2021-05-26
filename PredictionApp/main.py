@@ -64,7 +64,7 @@ def onClick():
         Stats["text"] = "Predicted Stats For " + \
             variable.get()[3:] + ":\nHome: " + home_pred + " Away: " + away_pred
     except:
-        Stats["text"] = "Unable to retrieve stats to make a prediction."
+        Stats["text"] = "Unable to retrieve stats to make a prediction. Try again later."
 
 
 button = Button(master, text="---GET STATS---", command=onClick)
