@@ -1105,11 +1105,11 @@ After looking into correlation between opposing teams statistics, there is littl
 
 Now we will look into various statistics correlation to `final_PTS`. This will help us find the columns that add the most accuracy to the model. After looking deeper into the relationships between final scores our suspicions from the heatmap were confirmed once again. Some columns that had high correlation were `half_PTS`, `FGM` and `AST`. A few that seemed to have little to no correlation were `PF` and `TO`.
 
-# Model Construction
-### Choosing the package
+### Model Construction
+#### Choosing the package
 This was the first project each of us have worked on that involved machine learning. Because of this we wanted to test a variety of different models to develop a breadth of knowledge. So we tried a few different models, starting with a simple linear regression and ending up utilizing a TensorFlow Sequential model. Along the way, we attempted to use a KNN model, a gradient boosted machine and a random forest. We ended up using a TensorFlow Sequential model because it produced the best mean absolute error. This was important because we want our model to predict the final score of NBA games with the least amount of error. 
 
-### Models.py
+#### Models.py
 To help in the training and hyperparameterization tuning in Tensorflow we created a small package to help. This includes funcitons to help compile, fit and test models. 
 
 Now we will get into the actual construction of models. Remember from the EDA, we realized there were 2 classes of variables correlated to final score, advanced statisitcs and base statistics. We will begin by testing which performs better. If they perform similarily, we will go with the base statistics to keep things simple and to make deployment easier.
@@ -1125,10 +1125,26 @@ The results were quite similar between the 2 different classes of statistics (ad
 
 The hyperparameters that consistently performed the best was with 2 layers of 64 nodes using the mean squared erorr as the loss function. This will be the model we construct to make our predicions.
 
-### Overfitting
+#### Overfitting
 When initially training models, there overfitting was imedietely evident due to the validation loss diverging from the loss. This meant that the model was doing worse on data it hadn't seen while training. So the model began to recognize individual games in the training set which improved training loss while worsening validation loss. This is bad because we need the model to perform well on games in the future that the model hasn't seen while training. To combat this, we implemented dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.
 
 ![Overfitting](/images/Overfitting.png)
+
+#### WNBA Model
+The results we got from our model trained to predict the final score of NBA predicted games wasn't performing quite to the accuracy we were hoping for. One way we tried to remedy this was to look for more data. During this process, we came across data from WNBA games. We had heard that WNBA are easier to predict so we went ahead and tried training a similar model on WNBA data and see if any improvements were made. 
+
+To do this we will use the same technique used with NBA data and see if there are any noticeable differences. We will jump straight to training models with base statistics so we won't need the derived statistics in our doubled dataset. The best performing model for predicting WNBA games had 4 layers, 128 nodes and used the mean squared error loss function. We will train a model with the selected hyperparameters and save it so that we can deploy it.
+
+#### Results
+The metric we decided to use to judge model performance was Mean Absolute Error. MAE makes the most sense in the context of basketball games because it represents the average amount of points the predictions were off by, directly relating to the game of basketball. The final NBA model had a MAE of 6.8 and the final WNBA model had a MAE of 5.2. 
+
+### Gradio Interface
+We wanted an easy to implement and use interface that we could use to make these predictions in a timely manner. To do this, we used Gradio. Gradio allowed us to create a simple interface where we manually input box score statistics and displays the predicted score. There are many box score statistics so it was mildly annoying the manually type them in but it worked anf was easy to use.
+
+![Gradio Interface](/images/GradioInetface.png)
+
+The 2021 NBA Playoffs have recently started and we've been using our model with the Gradio interface to make predictions. Here is one of the better predictions it made 
+![GoodPrediction](/images/GoodPrediction.png)
 
 
 ### Creating a Simple GUI For the Model
