@@ -1087,6 +1087,20 @@ After some testing with various combinations of derived statistics and various c
 
 After testing models the best combination of base statistics turned out to be all of them except the `REB` because it was accounted for in `OREB` and `DREB`. More on the exact parameters later on. 
 
+#### Doubling the data
+Notice that we've only been looking into data about the home team denoted by the prefix `h_` before each statistic. This is not without reasoning. After looking into multicollinearity, I noticed that most of opposing teams statistics from each game were correlated to each other. So the idea came to split the data set down the middle by home and away statistics, then append home statistics to away statistics. Essentially halving the number of columns and doubling the number of rows of the data. If the other teams statistics add no value to the predicted score then we would be able to double the amount of data available to train a model with. 
+
+To see if this is reasonable, we will investigate how final score is correlated to opposing teams statistics. 
+If opposing teams statistics are not correlated or, if they are correlated but strongly correlated to an opposing teams stat then this idea will be put in to action.
+
+![Away Turnovers vs Home Final Score](/images/aTO_vs_hFinalPTS.png)
+
+![Away Feild Goals Made vs Home Final Score](/images/aFGM_vs_hFinalPTS.png)
+
+#### Doubling the Data Verdict
+
+After looking into correlation between opposing teams statistics, there is little evidence of an opposite teams statistic adding any information about final
+
 ### Correlations to Final Score
 
 Now we will look into various statistics correlation to `h_final_PTS` and `a_final_PTS`. This will help us find the columns that add the most accuracy to the model. 
