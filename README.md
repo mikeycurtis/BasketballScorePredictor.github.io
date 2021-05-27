@@ -1069,6 +1069,27 @@ The relationship is easy to see when looking at a scatterplot of the `OFF_rating
 
 ![OFF_rating vs Half Points](/images/OFF_rating_vs_half_points.png)
 
+### Results of Multicolinearity 
+
+It became evident that many of the statistics we were able to gather data on were related to each other in some form or another. Through these scatter plots it is easy to confirm our suspicious developed from the heatmap. 
+
+#### A Decision
+
+There seemed to be a decision to make. Either using the advanced or derived statistics such as `h_OFF_RATING` and `h_AST_RATIO` or using more base stats such as `h_FGM` and `h_REB`. It would not make sense to use both because they contain similar information and would be redundant.
+
+There were tradeoffs to each of them. Both groups of statistics have some sort of correlation to final score. However, the correlations are generally stronger on the derived statistics. Our hypothesis on why this is, is that these statisitcs were derived for the very purpose of giving some sort of insight to the game. `h_OFF_RATING` for example is meant to give insight into the performance of the offense as a whole, where an individual statistic like `h_FGA` will only give insight on how many times the home team has shot. This comes at the tradeoff that there are fewer of these derived statistics. This could also be a pro if it helped train our model to similar accuracy with less data. 
+
+Using base statistics also has its benefits. First off, there are more of them that have a significant degree of correlation than the derived statistics. This could give our model more data points to train on. There could also be an advantage when it comes to inputting the data once we have a trained model. One of our end goals is to deploy the model using onto the web so that it is usable. Our options are to manually input the data or find a way to get live data during halftime of a desired games. It would be easier on the user to input base statistics which can easily be found on the box score of a game. While it would be doable to have the user input base statistics and derive the statistics ourselves, oftentimes, they are derived on other derived statistics which could greatly complicate the process of inputting data. So if there is little to no accuracy gained by using derived statistics to create a model, then perhaps it would make more sense to just use base statistics. 
+
+#### The Choice
+
+After some testing with various combinations of derived statistics and various combinations of base statistics, models trained on base statistics tend to perform more consistently. Because of this, we choose to implement a model using base statistics.
+
+After testing models the best combination of base statistics turned out to be all of them except the `REB` because it was accounted for in `OREB` and `DREB`. More on the exact parameters later on. 
+
+### Correlations to Final Score
+
+Now we will look into various statistics correlation to `h_final_PTS` and `a_final_PTS`. This will help us find the columns that add the most accuracy to the model. 
 
 
 ### Creating a Simple GUI For the Model
