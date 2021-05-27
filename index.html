@@ -764,7 +764,39 @@
     <br />
 
     <h3 style="text-align: center">Tensor Flow Model</h3>
-    <p>Tensor flow body</p>
+    <p>This was the first project each of us have worked on that involved machine learning.
+      Because of this we wanted to test a variety of different models to develop a breadth of
+      knowledge. So we tried a few different models, starting with a simple linear regression
+      and ending up utilizing a TensorFlow Sequential model. Along the way, we attempted to 
+      use a KNN model, a gradient boosted machine and a random forest. We ended up using a 
+      TensorFlow Sequential model because it produced the best mean absolute error. This was
+      important because we want our model to predict the final score of NBA games with the least
+      amount of error.</p>
+    <h5>Models.py</h5>
+    <p>To help in the training and hyperparameterization tuning in Tensorflow we created a small package
+      to help. This includes funcitons to help compile, fit and test models.
+
+      Now we will get into the actual construction of models. Remember from the EDA, we realized there were
+      2 classes of variables correlated to final score, derived statisitcs and base statistics. We will begin
+      by testing which performs better. If they perform similarily, we will go with the base statistics to keep
+      things simple and to make deployment easier.</p>
+    <h5>Selecting Hyperparameter</h5>
+    <p>In TensorFlow Sequential models, there are many hyperparameters that can be tweaked to improve the performance
+    of the model. These include adding layers, adding different amounts of nodes to these layers, changing the laerning rate
+    and many more. To find out the best hyperparameters for our model, we created and ran a function that trained a bunch of
+    different models with different combinations of hyperparameters. Then we empirically chose the model that performed best.
+    The hyperparameters that worked the best were 2 dense layers, each with 64 nodes. Between each layer is a dropout layer which
+     will be explained later. The best loss function was the mean squared error. This was probably because the mean squared errror 
+    loss function does better at handling scores that are potential outliers. The best learning rate turned out to be 0.001.
+    Anything greater learned too fast and didn't get to the accuracy needed before stopping, and anything less learned too slow.</p>
+    <h5>Overfitting</h5>
+    <p>When initially training models, there overfitting was imedietely evident. To combat this, we implemented
+      dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the
+      model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.</p>
+    <h5>Results</h5>
+    <p>The model predicted scores with a mean absolute error of 6.8. We chose MAE as our metric to check accuracy of 
+    a model because this gives how many points off each prediction is.</p>
+    <h5>Deploying the Model</h5>
     <hr />
     <br />
 
