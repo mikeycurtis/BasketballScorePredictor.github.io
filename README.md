@@ -1115,11 +1115,11 @@ To help in the training and hyperparameterization tuning in Tensorflow we create
 Now we will get into the actual construction of models. Remember from the EDA, we realized there were 2 classes of variables correlated to final score, advanced statisitcs and base statistics. We will begin by testing which performs better. If they perform similarily, we will go with the base statistics to keep things simple and to make deployment easier.
 
 RESULTS FOR ADVANCED STATISTICS MODELS:
-![Advanced Statistics Models](/images/AdvancedHyperparameters)
+![Advanced Statistics Models](/images/AdvancedHyperparameters.png)
 
 
 RESULTS FOR BASE STATISTICS MODELS:
-![Base Statistics Models](/images/BaseHyperparameters)
+![Base Statistics Models](/images/BaseHyperparameters.png)
 
 The results were quite similar between the 2 different classes of statistics (advanced and base). Note that the return MAE will vary each time the above codes are run. I selected the class of data and hyperparameters based on what consistently performed best. 
 
