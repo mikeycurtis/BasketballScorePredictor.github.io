@@ -1141,7 +1141,7 @@ The metric we decided to use to judge model performance was Mean Absolute Error.
 ### Gradio Interface
 We wanted an easy to implement and use interface that we could use to make these predictions in a timely manner. To do this, we used Gradio. Gradio allowed us to create a simple interface where we manually input box score statistics and displays the predicted score. There are many box score statistics so it was mildly annoying the manually type them in but it worked anf was easy to use.
 
-![Gradio Interface](/images/GradioInetface.png)
+![Gradio Interface](/images/GradioInterface.png)
 
 The 2021 NBA Playoffs have recently started and we've been using our model with the Gradio interface to make predictions. Here is one of the better predictions it made 
 ![GoodPrediction](/images/GoodPrediction.png)
