@@ -1109,12 +1109,21 @@ Now we will look into various statistics correlation to `final_PTS`. This will h
 ### Choosing the package
 This was the first project each of us have worked on that involved machine learning. Because of this we wanted to test a variety of different models to develop a breadth of knowledge. So we tried a few different models, starting with a simple linear regression and ending up utilizing a TensorFlow Sequential model. Along the way, we attempted to use a KNN model, a gradient boosted machine and a random forest. We ended up using a TensorFlow Sequential model because it produced the best mean absolute error. This was important because we want our model to predict the final score of NBA games with the least amount of error. 
 
-![TensorFlow Logo](/images/TF.png =50x50)
-
 ### Models.py
 To help in the training and hyperparameterization tuning in Tensorflow we created a small package to help. This includes funcitons to help compile, fit and test models. 
 
-Now we will get into the actual construction of models. Remember from the EDA, we realized there were 2 classes of variables correlated to final score, derived statisitcs and base statistics. We will begin by testing which performs better. If they perform similarily, we will go with the base statistics to keep things simple and to make deployment easier.
+Now we will get into the actual construction of models. Remember from the EDA, we realized there were 2 classes of variables correlated to final score, advanced statisitcs and base statistics. We will begin by testing which performs better. If they perform similarily, we will go with the base statistics to keep things simple and to make deployment easier.
+
+RESULTS FOR ADVANCED STATISTICS MODELS:
+![Advanced Statistics Models](/images/AdvancedHyperparameters)
+
+
+RESULTS FOR BASE STATISTICS MODELS:
+![Base Statistics Models](/images/BaseHyperparameters)
+
+The results were quite similar between the 2 different classes of statistics (advanced and base). Note that the return MAE will vary each time the above codes are run. I selected the class of data and hyperparameters based on what consistently performed best. 
+
+The hyperparameters that consistently performed the best was with 2 layers of 64 nodes using the mean squared erorr as the loss function. This will be the model we construct to make our predicions.
 
 ### Overfitting
 When initially training models, there overfitting was imedietely evident. To combat this, we implemented dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.
