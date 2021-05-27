@@ -1109,7 +1109,7 @@ Now we will look into various statistics correlation to `final_PTS`. This will h
 ### Choosing the package
 This was the first project each of us have worked on that involved machine learning. Because of this we wanted to test a variety of different models to develop a breadth of knowledge. So we tried a few different models, starting with a simple linear regression and ending up utilizing a TensorFlow Sequential model. Along the way, we attempted to use a KNN model, a gradient boosted machine and a random forest. We ended up using a TensorFlow Sequential model because it produced the best mean absolute error. This was important because we want our model to predict the final score of NBA games with the least amount of error. 
 
-![TensorFlow Logo](/images/TF.png)
+![TensorFlow Logo](/images/TF.png =50x50)
 
 ### Models.py
 To help in the training and hyperparameterization tuning in Tensorflow we created a small package to help. This includes funcitons to help compile, fit and test models. 
