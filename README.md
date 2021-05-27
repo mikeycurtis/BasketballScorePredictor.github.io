@@ -1126,7 +1126,9 @@ The results were quite similar between the 2 different classes of statistics (ad
 The hyperparameters that consistently performed the best was with 2 layers of 64 nodes using the mean squared erorr as the loss function. This will be the model we construct to make our predicions.
 
 ### Overfitting
-When initially training models, there overfitting was imedietely evident. To combat this, we implemented dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.
+When initially training models, there overfitting was imedietely evident due to the validation loss diverging from the loss. This meant that the model was doing worse on data it hadn't seen while training. So the model began to recognize individual games in the training set which improved training loss while worsening validation loss. This is bad because we need the model to perform well on games in the future that the model hasn't seen while training. To combat this, we implemented dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.
+
+![Overfitting](/images/Overfitting.png)
 
 
 ### Creating a Simple GUI For the Model
