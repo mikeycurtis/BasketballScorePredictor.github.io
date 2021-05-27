@@ -1042,3 +1042,15 @@ The NBA dataset can be found [here.](https://www.kaggle.com/mikeycurtis/nba-half
 </div>
 
 * * *
+
+
+
+### Creating a Simple GUI For the Model
+
+We found it slightly inconvenient to manually type in every statistic for a game that you want a prediction for, so we created a small gui application for our model using Tkinter and endpoints from nba.com.
+
+We wanted to be able to select from a list of active games to revieve a prediction for. Therefore, we needed to send a request to an endpoint that would give us a list of active games along with their unique game IDs.
+
+We found this endpoint by doing the following:
+
+![Inspect](/images/inspect.png)
