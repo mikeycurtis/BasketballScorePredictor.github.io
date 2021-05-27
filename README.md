@@ -1042,6 +1042,21 @@ The NBA dataset can be found [here.](https://www.kaggle.com/mikeycurtis/nba-half
 </div>
 
 * * *
+### Dealing With Missing Data
+
+The data set we obtained is for the most part free of missing data. Columns that concern rebounding percentage have the most missing data. This is because the NBA started recording rebounding percentage in 1970, nearly 20 years after they started recording stats. To remedy this, we can just drop those columns. The stat is largely derived from the total rebounds which doesn't have missing data so we won't lose very much information by dropping these columns.
+
+There is another set of columns that are mssing about 300 data points. Because this is such a small percentage of the data, I can drop these rows that are missing. In the results above, you can see that a majority of rows have 14683 entries, and all the ones missing a few hundred have exactly 14325. Because they are missing the same amount of data, I'm going to assume they are from the same rows and remove those rows.
+
+As we suspected the rows with just a few hundred missing data points were from the same rows. The dataset now contains 81 columns and 14325 entries, with no mssing values. Now we can move forward with some data visualization to get an initial understanding about relationships present in the data.
+
+### Data Visualization
+
+The goal for this process of data visualization is to first see if there are any underlying relationships that are present in our data. This will make the process of constructing models much more effiecient. I will also look out for statistics that have no effect on final score. If a column adds little to no information, it won't provide any value if trained on by a model. Therefore it wouldn't make sense to keep and we can drop the statistic.
+
+Something else that we will look into is if there is any correlation between one team's final score, and any of the opposing team's statistics. An example of this would be if the home team's final score is affected by the away team's number of turnovers. The reason this is important is that if that if there are no strong correlations, we will be able to effectively double the amount of data we have by splitting up the data into home and away statistics, then appending one to another and adding an extra column indicating whether or not they are the home team. If we are able to do this, we will have twice as many rows which could give our models more data to train and test on. 
+
+The first thing I will look at is a heat map of the correlations each column has to one another. This will give me ideas of what I need to look into.
 
 
 
