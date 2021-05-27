@@ -1170,3 +1170,9 @@ After selecting the game that you want a prediction for, you simply click the "G
 ![dropdown](/images/final_prediction.png)
 
 To use this app, just download this repository and cd into the PredictionApp directory. From there type "python3 main.py" into the terminal.
+
+### Key Takeaways
+The WNBA model predicted with an average of 1.2 points better than the NBA model. This is an interesting result. A possible explanation is that WNBA games play 10 minute quarters instead of 12 minute quarters like the NBA. So in the second half, there is 4 minutes less of basketball being played. This could lead to better predictions because there is less time for the variability of the game of basketball to take its affect. 
+
+#### Live Betting
+At halftime, the casino's oddmakers set the over/under on how many points each team will score at the end of the game. Normally, the odds are set at -115 meaning that you need to bet $115 to win $100. With these odds, you need to win about $54 of bets to make a profit. The strategy we've been using is betting on the over/under based on the prediction our model makes. So if the over/under is set at 115.5 points and our model predicts a score of 112, then we would bet the under. So far, we're sitting at 56% of bets won which would put us at making a profit. However, this is still a small sample size of 16 bets at the time of writing this so it's too early to tell if this will profit in the long term.
