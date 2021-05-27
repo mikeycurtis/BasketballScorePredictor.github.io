@@ -1057,7 +1057,17 @@ The goal for this process of data visualization is to first see if there are any
 Something else that we will look into is if there is any correlation between one team's final score, and any of the opposing team's statistics. An example of this would be if the home team's final score is affected by the away team's number of turnovers. The reason this is important is that if that if there are no strong correlations, we will be able to effectively double the amount of data we have by splitting up the data into home and away statistics, then appending one to another and adding an extra column indicating whether or not they are the home team. If we are able to do this, we will have twice as many rows which could give our models more data to train and test on. 
 
 The first thing I will look at is a heat map of the correlations each column has to one another. This will give me ideas of what I need to look into.
+
+
 ![Correlation Heatmap](/images/CorrelationHeatmap.png)
+
+It became imedietely apparant that many of our columns were correlated to each other. This is due to the advanced stats present in our dataset. Advanced stats are derived from the base stats you would see in the box score in one way or another. An example of this is the advanced statistic called Offensive Rating. It is used to get an idea of how well the offense is performing without penalizing teams that play at a slower pace. It is derived from the following formula:
+
+![OFF Rating](/images/OFF_RATING_equation.png)
+
+The relationship is easy to see when looking at a scatterplot of the `OFF_rating` and `Points`
+
+![OFF_rating vs Half Points](/images/OFF_rating_vs_half_points.png)
 
 
 
