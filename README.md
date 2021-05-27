@@ -1051,6 +1051,20 @@ We found it slightly inconvenient to manually type in every statistic for a game
 
 We wanted to be able to select from a list of active games to revieve a prediction for. Therefore, we needed to send a request to an endpoint that would give us a list of active games along with their unique game IDs.
 
-We found this endpoint by doing the following:
+We found this endpoint by right clicking on the nba.com homepage and clicking inspect. In the inspection window, we then went under the Network and XHR tabs and refreshed the page. Once refreshed, a list of requests that the webpage was making showed up and after searching through some endpoints, we found exactly what we were looking for.
 
-![Inspect](/images/inspect.png)
+Using Requests, JSON, and BeautifulSoup, we retrieved the data that we needed from this endpoint to create a dropdown list of active games. Here is an image:
+
+![dropdown](/images/selecting_game.png) 
+
+*Note that there was only one live game that was on when this screenshot was captured, but if there are multiple games on at once then they will all show up.
+
+We needed to find a way to retrieve the half time statistics for whatever game we chose from the dropdown box. To do this we searched through more endpoints in the same way as aforementioned, and we came across one that had the live play-by-play data for active games.
+
+We then wrote a python script to iterate through the play-by-play data and retrieve the desired half time statistics to feed in the model.
+
+After selecting the game that you want a prediction for, you simply click the "Get Stats" button, and the prediction for that game will be outputted. 
+
+![dropdown](/images/final_prediction.png)
+
+To use this app, just download this repository and cd into the PredictionApp directory. From there type "python3 main.py" into the terminal.
