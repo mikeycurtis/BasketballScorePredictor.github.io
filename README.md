@@ -1103,7 +1103,21 @@ After looking into correlation between opposing teams statistics, there is littl
 
 ### Correlations to Final Score
 
-Now we will look into various statistics correlation to `h_final_PTS` and `a_final_PTS`. This will help us find the columns that add the most accuracy to the model. 
+Now we will look into various statistics correlation to `final_PTS`. This will help us find the columns that add the most accuracy to the model. After looking deeper into the relationships between final scores our suspicions from the heatmap were confirmed once again. Some columns that had high correlation were `half_PTS`, `FGM` and `AST`. A few that seemed to have little to no correlation were `PF` and `TO`.
+
+# Model Construction
+### Choosing the package
+This was the first project each of us have worked on that involved machine learning. Because of this we wanted to test a variety of different models to develop a breadth of knowledge. So we tried a few different models, starting with a simple linear regression and ending up utilizing a TensorFlow Sequential model. Along the way, we attempted to use a KNN model, a gradient boosted machine and a random forest. We ended up using a TensorFlow Sequential model because it produced the best mean absolute error. This was important because we want our model to predict the final score of NBA games with the least amount of error. 
+
+![TensorFlow Logo](/images/TF.png)
+
+### Models.py
+To help in the training and hyperparameterization tuning in Tensorflow we created a small package to help. This includes funcitons to help compile, fit and test models. 
+
+Now we will get into the actual construction of models. Remember from the EDA, we realized there were 2 classes of variables correlated to final score, derived statisitcs and base statistics. We will begin by testing which performs better. If they perform similarily, we will go with the base statistics to keep things simple and to make deployment easier.
+
+### Overfitting
+When initially training models, there overfitting was imedietely evident. To combat this, we implemented dropout layers between each dense layer. We also implemented an Earlystop callback to stop training the model once no progress was made. Combined, these drasticlaly reduced overfitting and made it a nonfactor.
 
 
 ### Creating a Simple GUI For the Model
