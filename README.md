@@ -1057,6 +1057,7 @@ The goal for this process of data visualization is to first see if there are any
 Something else that we will look into is if there is any correlation between one team's final score, and any of the opposing team's statistics. An example of this would be if the home team's final score is affected by the away team's number of turnovers. The reason this is important is that if that if there are no strong correlations, we will be able to effectively double the amount of data we have by splitting up the data into home and away statistics, then appending one to another and adding an extra column indicating whether or not they are the home team. If we are able to do this, we will have twice as many rows which could give our models more data to train and test on. 
 
 The first thing I will look at is a heat map of the correlations each column has to one another. This will give me ideas of what I need to look into.
+![Correlation Heatmap](/images/CorrelationHeatmap.png)
 
 
 
