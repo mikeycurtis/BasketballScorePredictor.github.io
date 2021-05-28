@@ -1117,7 +1117,7 @@ Although at this point we're far from our goal, there are a variety of methods t
 ![BoxCox Transformation](/LinReg/boxcox.jpg)
 
 We know that a transformation is appropriate because the interval didn't contain one, the default value. This response transformation yielded an R-Squared value of 0.556, which is definitely an improvement. After experimenting with a variety of other methods like accounting for interactions among variables and trying polynomial regression, nothing could break through to 0.6 R-Squared or higher. The following is the final model output after applying the repsonse transformation.
-![Away Turnovers vs Home Final Score](/LinReg/OptimalMod.jpg)
+![OptimalMod](/LinReg/OptimalMod1.jpg)
 
 #### Linear Regression Verdict
 Ultimately, basketball is a game where there are many paths to victory. This phrase means that a team does not have to perform in a specific way every game in order to win. Winning can come as a result of great shooting, stellar defense, or dominant rebounding. Intuitively, it appears that our lackluster performance from linear regression models is a direct consequence of this phenomenon. A linear model cannot account for these many combinations that can result in victory, as each variable can only positively or negatively impact the predicted final score. Although linear regression served as a good starting point for our modeling efforts, we're not satisfied with the results. Moving forward, we start to implement a model that is better equipped to account for these intricacies.
