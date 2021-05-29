@@ -1,5 +1,5 @@
 # NBApredictor
-Michael Curtis, Bernie Graves, Henry Strecker
+Creators: Michael Curtis, Bernie Graves, Henry Strecker
 ### Data Acquisition & Cleaning
 
 ##### Initial Approach
